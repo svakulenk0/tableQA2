@@ -5,7 +5,12 @@ author: svakulenko
 '''
 
 DATA_DIR = '../data/'
-SAMPLE_CSV_FILE = 'OOE_Wanderungen_Zeitreihe.csv'
+SAMPLE_CSV_FILE = 'OOE_Wanderungen_Zeitreihe.csv'  # 10 columns
 
-INDEX_NAME = 'tables'
-DOC_TYPE = 'row'
+# row-based representation of a table
+INDEX_NAME_ROWS = 'table_rows'
+DOC_TYPE_ROWS = 'row'
+
+# cell-based representation of a table
+INDEX_NAME_CELLS = 'table_cells'
+DOC_TYPE_CELLS = 'cell'
