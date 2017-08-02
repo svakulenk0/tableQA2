@@ -76,6 +76,8 @@ def cells2ES(file_name, index_name, limit=2, mapping={}):
         rows = rows[:limit]
     for i, row in enumerate(rows):
         for j, cell in enumerate(row):
+            # lowercase text value
+            cell = cell.lower()
             print "row %s column %s value %s" % (i, j, cell)
 
             # write cell to ES index
@@ -84,7 +86,8 @@ def cells2ES(file_name, index_name, limit=2, mapping={}):
 
 
 def test_cells2ES():
-    cells2ES(SAMPLE_CSV_FILE, INDEX_NAME_CELLS, mapping={})
+    # cells2ES(SAMPLE_CSV_FILE, INDEX_NAME_CELLS, mapping={})
+    cells2ES(SAMPLE_CSV_FILE, INDEX_NAME_CELLS, mapping=ngram_tokenizer)
 
 
 if __name__ == '__main__':
