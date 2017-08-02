@@ -8,9 +8,10 @@ from elasticsearch import Elasticsearch
 
 from load_csv import load_csv
 from settings import *
+from mappings import ngram_tokenizer
 
 
-def rows2ES(file_name, index_name, limit=2):
+def rows2ES(file_name, index_name, limit=2, mapping={}):
     '''
     Loads a table from the CSV file to the ES index row by row along with the heading within the row,
     i.e. row is a document to search for.
@@ -23,9 +24,9 @@ def rows2ES(file_name, index_name, limit=2):
     # reset index
     try:
         es.indices.delete(index=index_name)
-        es.indices.create(index=index_name)
-    except:
-        pass
+        es.indices.create(index=index_name, body=mapping)
+    except Exception as e:
+        print e
 
     header, rows = load_csv(SAMPLE_CSV_FILE)
     row_strs = []
@@ -48,5 +49,9 @@ def test_rows2ES():
     rows2ES(SAMPLE_CSV_FILE, INDEX_NAME)
 
 
+def test_custom_mapping():
+    rows2ES(SAMPLE_CSV_FILE, INDEX_NAME, mapping=ngram_tokenizer)
+
+
 if __name__ == '__main__':
-    test_rows2ES()
+    test_custom_mapping()
