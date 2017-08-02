@@ -12,9 +12,13 @@ from index_tables_ES import cells2ES
 
 QUESTIONS = ['what is the population of linz?',
              'what is the immigration in linz?',
+             'what is the immigration in vienna?',
+             'what is the immigration in wien?',
+             'what is the emmigration in Burgkirchen?',
+             'what is the emigration in Burgkirchen?',
              'what is the internal_mig_immigration in linz?']  # correct answer: 9693
 
-THRESHOLD = 2
+THRESHOLD = 3
 
 
 class ESConnection():
