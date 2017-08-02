@@ -19,11 +19,13 @@ def rows2ES(file_name, index_name, limit=2):
     es = Elasticsearch()
 
     # make sure the index exists
-    # try:
-    #     es.indices.delete(index=index_name)
-    #     es.indices.create(index=index_name)
-    # except:
-    #     pass
+
+    # reset index
+    try:
+        es.indices.delete(index=index_name)
+        es.indices.create(index=index_name)
+    except:
+        pass
 
     header, rows = load_csv(SAMPLE_CSV_FILE)
     row_strs = []
@@ -39,7 +41,7 @@ def rows2ES(file_name, index_name, limit=2):
 
         # write row to ES index
         es.index(index=index_name, doc_type=DOC_TYPE, id=i,
-                 body={'content': row_str})
+                 body={'row': row_str})
 
 
 def test_rows2ES():
