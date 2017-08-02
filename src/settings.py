@@ -5,7 +5,7 @@ author: svakulenko
 '''
 
 DATA_DIR = '../data/'
-SAMPLE_CSV_FILE = 'OOE_Wanderungen_Zeitreihe.csv'  # 10 columns
+SAMPLE_CSV_FILE = 'OOE_Wanderungen_Zeitreihe.csv'  # 10 columns 6,188 rows 61,880 cells
 
 # row-based representation of a table
 INDEX_NAME_ROWS = 'table_rows'
