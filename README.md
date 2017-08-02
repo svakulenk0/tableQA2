@@ -128,6 +128,35 @@ row 1 column 2 value linz
 
 Answer: row 1 column 4 value 9693
 
+## Error analysis
+
+**Ngram Tokenizer**
+
+what is the **emmigration** in Burgkirchen?  
+
+21.943697  
+
+row 0 column 6 value **immigration_total**  
+
+19.363943  
+
+row 8 column 2 value burgkirchen  
+
+Answer: row 8 column 6 value 229
+
+
+what is the **emigration** in Burgkirchen?  
+
+21.943697  
+
+row 0 column 9 value **emigration_total**  
+
+19.363943  
+
+row 8 column 2 value burgkirchen  
+
+Answer: row 8 column 9 value 207
+
 
 ## References
 
