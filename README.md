@@ -1,4 +1,4 @@
-## Baseline
+## Approach
 
 1. Load table to ES row by row along with the header labels (also apply lowercasing)
 
@@ -13,8 +13,10 @@ nuts2 at31 lau2_code 40101 lau2_name linz year 2015 internal_mig_immigration 969
 
 2. Tokenize documents: 1)Word Tokenizer (standard analyzer); 2)Ngram Tokenizer (character-level ngrams).
 
+3. Question => Find relevant cells => row, column => Look up the Answer
 
-## Baseline results
+
+## Tokenizer results
 
 1. **Word Tokenizer** --> exact word-token match required, e.g.:
 
