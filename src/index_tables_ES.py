@@ -41,16 +41,16 @@ def rows2ES(file_name, index_name, limit=2, mapping={}):
         print row_str
 
         # write row to ES index
-        es.index(index=index_name, doc_type=DOC_TYPE, id=i,
+        es.index(index=index_name, doc_type=DOC_TYPE_ROWS, id=i,
                  body={'content': row_str})
 
 
 def test_rows2ES():
-    rows2ES(SAMPLE_CSV_FILE, INDEX_NAME)
+    rows2ES(SAMPLE_CSV_FILE, INDEX_NAME_ROWS)
 
 
 def test_custom_mapping():
-    rows2ES(SAMPLE_CSV_FILE, INDEX_NAME, mapping=ngram_tokenizer)
+    rows2ES(SAMPLE_CSV_FILE, INDEX_NAME_ROWS, mapping=ngram_tokenizer)
 
 
 def cells2ES(file_name, index_name, limit=2, mapping={}):
@@ -84,7 +84,7 @@ def cells2ES(file_name, index_name, limit=2, mapping={}):
 
 
 def test_cells2ES():
-    cells2ES(SAMPLE_CSV_FILE, INDEX_NAME_CELLS)
+    cells2ES(SAMPLE_CSV_FILE, INDEX_NAME_CELLS, mapping={})
 
 
 if __name__ == '__main__':
