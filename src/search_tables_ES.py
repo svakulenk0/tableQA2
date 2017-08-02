@@ -10,7 +10,7 @@ from settings import *
 
 QUESTIONS = ['what is the population of linz?',
              'what is the immigration in linz?',
-             'what is the internal_mig_immigration of linz?']  # correct answer: 9693
+             'what is the internal_mig_immigration in linz?']  # correct answer: 9693
 
 class ESConnection():
     def __init__(self, index_name, doc_type):
@@ -30,15 +30,29 @@ class ESConnection():
         return results
 
 
-def test_search_tables():
+def test_search_rows_q(index_name=INDEX_NAME_ROWS, doc_type=DOC_TYPE_ROWS):
+    es = ESConnection(index_name, doc_type)
+
     question = 'what is the population of linz?'
-    results = search_rows(INDEX_NAME, question)
+
+    results = es.search_tables(question)
     # print results
-    print results['hits']['hits'][0]['_source']['row']
-    print results['hits']['hits'][0]['_score']
+    print results[0]['_source']['content']
+    print results[0]['_score']
 
 
-def test_search_tables_w_qs(questions=QUESTIONS, index_name=INDEX_NAME_CELLS, doc_type=DOC_TYPE_CELLS):
+def test_search_rows_qs(index_name=INDEX_NAME_ROWS, doc_type=DOC_TYPE_ROWS):
+    es = ESConnection(index_name, doc_type)
+
+    for question in QUESTIONS:
+        print question
+        results = es.search_tables(question)
+        # print results
+        print results[0]['_source']['content']
+        print results[0]['_score']
+
+
+def test_search_cells_qs(questions=QUESTIONS, index_name=INDEX_NAME_CELLS, doc_type=DOC_TYPE_CELLS):
     es = ESConnection(index_name, doc_type)
 
     for question in questions:
@@ -46,6 +60,7 @@ def test_search_tables_w_qs(questions=QUESTIONS, index_name=INDEX_NAME_CELLS, do
         i, j = None, None
 
         results = es.search_tables(question)
+        # print results
         for result in results:
             # print result
             print result['_score']
@@ -75,4 +90,4 @@ def test_search_tables_w_qs(questions=QUESTIONS, index_name=INDEX_NAME_CELLS, do
 
 
 if __name__ == '__main__':
-    test_search_tables_w_qs()
+    test_search_cells_qs()
