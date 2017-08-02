@@ -16,7 +16,7 @@ nuts2 at31 lau2_code 40101 lau2_name linz year 2015 internal_mig_immigration 969
 3. Question => Find relevant cells => row, column => Look up the Answer
 
 
-## Tokenizer results
+## Row search results
 
 1. **Word Tokenizer**
 
@@ -70,7 +70,7 @@ what is the internal_mig_immigration of linz?
 nuts2 at31 lau2_code 40101 lau2_name linz year 2015 internal_mig_immigration 9693 international_mig_immigration 6583 immigration_total 16276 internal_mig_emigration 9994 international_mig_emigration 3171 emigration_total 13165
 
 
-## Lookup results
+## Cell search results
 
 1. **Word Tokenizer**
 
