@@ -13,7 +13,11 @@ nuts2 at31 lau2_code 40101 lau2_name linz year 2015 internal_mig_immigration 969
 
 2. Tokenize documents: 1)Word Tokenizer (standard analyzer); 2)Ngram Tokenizer (4 character-level ngrams, e.g. inte, nter, tern, erna, etc.).
 
-3. Question => Find relevant cells => row, column => Look up the Answer
+3. Question Answering
+
+* Row search: Question => Find relevant row
+
+* Cell search: Question => Find relevant cells => row, column => Look up the Answer
 
 
 ## Row search results
