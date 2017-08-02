@@ -51,7 +51,7 @@ nuts2 at31 lau2_code 40101 lau2_name linz year 2015 **internal_mig_immigration**
 2. **Ngram Tokenizer**
 
 
-what is the population of linz?  
+what is the **population** of linz?  
 
 2.2908065  
 
@@ -59,19 +59,19 @@ nuts2 at31 lau2_code 40101 lau2_name linz year 2015 internal_mig_immigration 969
 
 <br>
 
-what is the immigration in linz?  
+what is the **immigration** in linz?  
 
 4.328201  
 
-nuts2 at31 lau2_code 40101 lau2_name linz year 2015 internal_mig_immigration 9693 international_mig_immigration 6583 immigration_total 16276 internal_mig_emigration 9994 international_mig_emigration 3171 emigration_total 13165
+nuts2 at31 lau2_code 40101 lau2_name linz year 2015 **internal_mig_immigration** 9693 **international_mig_immigration** 6583 **immigration_total** 16276 internal_mig_emigration 9994 international_mig_emigration 3171 emigration_total 13165
 
 <br>
 
-what is the internal_mig_immigration of linz?  
+what is the **internal_mig_immigration** of linz?  
 
 8.121933  
 
-nuts2 at31 lau2_code 40101 lau2_name linz year 2015 internal_mig_immigration 9693 international_mig_immigration 6583 immigration_total 16276 internal_mig_emigration 9994 international_mig_emigration 3171 emigration_total 13165
+nuts2 at31 lau2_code 40101 lau2_name linz year 2015 internal_mig_immigration 9693 **international_mig_immigration** 6583 immigration_total 16276 internal_mig_emigration 9994 international_mig_emigration 3171 emigration_total 13165
 
 
 ## Cell search results
