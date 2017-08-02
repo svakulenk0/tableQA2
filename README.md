@@ -100,6 +100,7 @@ row 1 column 2 value linz
 
 Answer: Not found
 
+<br>
 
 what is the immigration in linz?  
 
@@ -113,6 +114,7 @@ row 1 column 2 value linz
 
 Answer: row 1 column 6 value 16276
 
+<br>
 
 what is the internal_mig_immigration in linz?  
 
