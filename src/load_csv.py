@@ -43,5 +43,18 @@ def test_table2rows():
     print table2rows(SAMPLE_CSV_FILE)[:2]
 
 
+def table2cells(file_name):
+    header, rows = load_csv(SAMPLE_CSV_FILE)
+    row_strs = []
+    for i, row in enumerate(rows):
+        row_str = ""
+        for j, cell in enumerate(row):
+            print "row %s column %s value %s" % (i, j, cell)
+
+
+def test_table2cells():
+    table2cells(SAMPLE_CSV_FILE)
+
+
 if __name__ == '__main__':
-    test_table2rows()
+    test_table2cells()
