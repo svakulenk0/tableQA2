@@ -1,4 +1,4 @@
-## Baseline
+## Baseline (ES standard analyzer)
 
 Load table to ES row by row along with the header labels (also apply lowercasing)
 
@@ -13,6 +13,8 @@ nuts2 at31 lau2_code 40101 lau2_name linz year 2015 internal_mig_immigration 969
 
 
 ## Baseline results
+
+Exact word-token match required:
 
 what is the population of linz?  
 
