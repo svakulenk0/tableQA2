@@ -67,7 +67,9 @@ def test_search_tables_w_qs(questions=QUESTIONS, index_name=INDEX_NAME_CELLS, do
         if i and j:
             results = es.lookup(i, j)
             # show top result cell content as the final answer
-            print results[0]['_source']['content']
+            value = results[0]['_source']['content']
+            print "Answer: row %s column %s value %s" % (i, j, value)
+
 
         print '\n'
 

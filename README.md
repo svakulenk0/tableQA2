@@ -68,6 +68,21 @@ what is the internal_mig_immigration of linz?
 nuts2 at31 lau2_code 40101 lau2_name linz year 2015 internal_mig_immigration 9693 international_mig_immigration 6583 immigration_total 16276 internal_mig_emigration 9994 international_mig_emigration 3171 emigration_total 13165
 
 
+## Lookup results
+
+what is the internal_mig_immigration of linz?  
+
+1.6739764  
+
+row 1 column 2 value Linz  
+
+1.2039728  
+
+row 0 column 4 value INTERNAL_MIG_IMMIGRATION  
+
+Answer: row 1 column 4 value 9693
+
+
 ## References
 
 * [An Introduction to Ngrams in Elasticsearch. 2015.](https://qbox.io/blog/an-introduction-to-ngrams-in-elasticsearch)
