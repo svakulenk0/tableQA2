@@ -26,7 +26,7 @@ ngram_tokenizer = {
                      "mappings": {
                         "doc": {
                            "properties": {
-                              "row": {
+                              "content": {
                                  "type": "text",
                                  "term_vector": "yes",
                                  "analyzer": "ngram_tokenizer_analyzer"
