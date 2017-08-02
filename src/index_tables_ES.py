@@ -53,7 +53,7 @@ def test_custom_mapping():
     rows2ES(SAMPLE_CSV_FILE, INDEX_NAME_ROWS, mapping=ngram_tokenizer)
 
 
-def cells2ES(file_name, index_name, limit=2, mapping={}):
+def cells2ES(file_name, index_name, limit=None, mapping={}):
     '''
     Loads a table from the CSV file to the ES index row by row along with the heading within the row,
     i.e. row is a document to search for.
@@ -81,14 +81,21 @@ def cells2ES(file_name, index_name, limit=2, mapping={}):
             print "row %s column %s value %s" % (i, j, cell)
 
             # write cell to ES index
-            es.index(index=index_name, doc_type=DOC_TYPE_CELLS,
-                     body={'row': i, 'column': j, 'content': cell})
+            try:
+                es.index(index=index_name, doc_type=DOC_TYPE_CELLS,
+                         body={'row': i, 'column': j, 'content': cell})
+            except:
+                print cell
 
 
 def test_cells2ES():
     # cells2ES(SAMPLE_CSV_FILE, INDEX_NAME_CELLS, mapping={})
+    cells2ES(SAMPLE_CSV_FILE, INDEX_NAME_CELLS, mapping=ngram_tokenizer, limit=2)
+
+
+def index_whole_dataset():
     cells2ES(SAMPLE_CSV_FILE, INDEX_NAME_CELLS, mapping=ngram_tokenizer)
 
 
 if __name__ == '__main__':
-    test_cells2ES()
+    index_whole_dataset()
