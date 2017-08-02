@@ -11,14 +11,14 @@ becomes ES document:
 
 nuts2 at31 lau2_code 40101 lau2_name linz year 2015 internal_mig_immigration 9693 international_mig_immigration 6583 immigration_total 16276 internal_mig_emigration 9994 international_mig_emigration 3171 emigration_total 13165
 
-2. Tokenize documents: 1)Word Tokenizer (standard analyzer); 2)Ngram Tokenizer (character-level ngrams).
+2. Tokenize documents: 1)Word Tokenizer (standard analyzer); 2)Ngram Tokenizer (4 character-level ngrams, e.g. inte, nter, tern, erna, etc.).
 
 3. Question => Find relevant cells => row, column => Look up the Answer
 
 
 ## Tokenizer results
 
-1. **Word Tokenizer** --> exact word-token match required, e.g.:
+1. **Word Tokenizer**
 
 
 what is the **population** of linz?  
@@ -44,7 +44,7 @@ what is the **internal_mig_immigration** of linz?
 nuts2 at31 lau2_code 40101 lau2_name linz year 2015 **internal_mig_immigration** 9693 international_mig_immigration 6583 immigration_total 16276 internal_mig_emigration 9994 international_mig_emigration 3171 emigration_total 13165
 
 
-2. **Ngram Tokenizer** (4 character-level ngrams, e.g. inte, nter, tern, erna, etc.)
+2. **Ngram Tokenizer**
 
 
 what is the population of linz?  
@@ -72,15 +72,53 @@ nuts2 at31 lau2_code 40101 lau2_name linz year 2015 internal_mig_immigration 969
 
 ## Lookup results
 
-what is the internal_mig_immigration of linz?  
+1. **Word Tokenizer**
 
-1.6739764  
-
-row 1 column 2 value Linz  
+what is the internal_mig_immigration in linz?  
 
 1.2039728  
 
-row 0 column 4 value INTERNAL_MIG_IMMIGRATION  
+row 0 column 4 value internal_mig_immigration  
+
+1.2039728  
+
+row 1 column 2 value linz  
+
+Answer: row 1 column 4 value 9693
+
+2. **Ngram Tokenizer**
+
+what is the population of linz?  
+
+4.081641  
+
+row 1 column 2 value linz  
+
+Answer: Not found
+
+
+what is the immigration in linz?  
+
+7.168558  
+
+row 0 column 6 value immigration_total  
+
+4.081641  
+
+row 1 column 2 value linz  
+
+Answer: row 1 column 6 value 16276
+
+
+what is the internal_mig_immigration in linz?  
+
+15.177296  
+
+row 0 column 4 value internal_mig_immigration  
+
+4.081641  
+
+row 1 column 2 value linz  
 
 Answer: row 1 column 4 value 9693
 
