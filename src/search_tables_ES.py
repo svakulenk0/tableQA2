@@ -15,8 +15,8 @@ QUESTIONS = ['what is the population of linz?',
              'what is the immigration in vienna?',
              'what is the immigration in wien?',
              'what is the emmigration in Burgkirchen?',
-             'what is the emigration in Burgkirchen?',
-             'what is the internal_mig_immigration in linz?']  # correct answer: 9693
+             'what is the internal_mig_immigration in linz in 2015?',  # correct answer: 9693
+             'what is the internal_mig_immigration in linz?']
 
 THRESHOLD = 3
 
@@ -64,13 +64,22 @@ def test_search_rows_qs(index_name=INDEX_NAME_ROWS, doc_type=DOC_TYPE_ROWS):
 def test_search_cells_q(index_name=INDEX_NAME_CELLS, doc_type=DOC_TYPE_CELLS, reindex=False):
     es = ESConnection(index_name, doc_type)
 
-    question = 'lin'
+    question = 'what is the internal_mig_immigration in linz in 2015?'
 
     if reindex:
         cells2ES(SAMPLE_CSV_FILE, index_name, mapping=ngram_tokenizer)
 
     results = es.search_tables(question)
-    print results
+    # print results
+    for result in results:
+        # print result
+        score = result['_score']
+        value = result['_source']['content']
+        row = result['_source']['row']
+        column = result['_source']['column']
+
+        print score
+        print "row %s column %s value %s" % (row, column, value)
 
 
 def test_search_cells_qs(questions=QUESTIONS, index_name=INDEX_NAME_CELLS, doc_type=DOC_TYPE_CELLS, reindex=False):
@@ -103,13 +112,13 @@ def test_search_cells_qs(questions=QUESTIONS, index_name=INDEX_NAME_CELLS, doc_t
                     print score
                     print "row %s column %s value %s" % (row, column, value)
 
-            # hit the top scored row
+            # hit the matched rows
             else:
-                if i == None:
-                    i = row
-                    # report row cell found
-                    print score
-                    print "row %s column %s value %s" % (row, column, value)
+                # if i == None:
+                i = row
+                # report row cell found
+                print score
+                print "row %s column %s value %s" % (row, column, value)
 
             # look up the cell value with the answer
 
