@@ -31,7 +31,7 @@ class ESConnection():
         self.doc_type = doc_type
 
     def search_tables(self, question, explain=True):
-        results = self.es.search(index=self.index_name, body={"query": {"match": {"content": question}}}, doc_type=self.doc_type, explain=explain)['hits']['hits']
+        results = self.es.search(index=self.index_name, body={"query": {"match": {"content": question}}}, doc_type=self.doc_type, explain=explain, size=50)['hits']['hits']
         return results
 
     def lookup(self, row, column, explain=False):
@@ -64,7 +64,7 @@ def test_search_rows_qs(index_name=INDEX_NAME_ROWS, doc_type=DOC_TYPE_ROWS):
 def test_search_cells_q(index_name=INDEX_NAME_CELLS, doc_type=DOC_TYPE_CELLS, reindex=False):
     es = ESConnection(index_name, doc_type)
 
-    question = 'what is the internal_mig_immigration in linz in 2015?'
+    question = 'what in linz in 2015?'
 
     if reindex:
         cells2ES(SAMPLE_CSV_FILE, index_name, mapping=ngram_tokenizer)
