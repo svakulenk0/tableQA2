@@ -11,7 +11,7 @@ from settings import *
 from mappings import ngram_tokenizer
 
 
-def rows2ES(file_name, index_name, limit=2, mapping={}):
+def rows2ES(file_name, index_name, limit=None, mapping={}):
     '''
     Loads a table from the CSV file to the ES index row by row along with the heading within the row,
     i.e. row is a document to search for.
@@ -41,12 +41,15 @@ def rows2ES(file_name, index_name, limit=2, mapping={}):
         print row_str
 
         # write row to ES index
-        es.index(index=index_name, doc_type=DOC_TYPE_ROWS, id=i,
-                 body={'content': row_str})
+        try:
+            es.index(index=index_name, doc_type=DOC_TYPE_ROWS, id=i,
+                     body={'content': row_str})
+        except:
+            print row_str
 
 
 def test_rows2ES():
-    rows2ES(SAMPLE_CSV_FILE, INDEX_NAME_ROWS)
+    rows2ES(SAMPLE_CSV_FILE, INDEX_NAME_ROWS, limit=2)
 
 
 def test_custom_mapping():
@@ -94,7 +97,10 @@ def test_cells2ES():
 
 
 def index_whole_dataset():
-    cells2ES(SAMPLE_CSV_FILE, INDEX_NAME_CELLS, mapping=ngram_tokenizer)
+    # index rows
+    rows2ES(SAMPLE_CSV_FILE, INDEX_NAME_ROWS, mapping=ngram_tokenizer)
+    # index cells
+    # cells2ES(SAMPLE_CSV_FILE, INDEX_NAME_CELLS, mapping=ngram_tokenizer)
 
 
 if __name__ == '__main__':
