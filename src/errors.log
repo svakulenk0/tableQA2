@@ -1,0 +1,16 @@
+1. Does not pick up the year cell
+
+2. Wrong scoring. Length adjustment?
+
+what is the internal_mig_immigration in linz in 2015?
+42.093822
+row 0 column 5 value international_mig_immigration
+8.81559
+row 1 column 2 value linz
+8.81559
+row 443 column 2 value linz
+8.81559
+row 885 column 2 value linz
+8.81559
+row 1327 column 2 value linz
+Answer: row 1327 column 5 value 3754
